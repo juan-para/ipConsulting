@@ -1,4 +1,4 @@
-package util;
+package demo.ipConsulting.util;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;

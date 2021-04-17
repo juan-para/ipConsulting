@@ -1,4 +1,4 @@
-package model.entity;
+package demo.ipConsulting.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
