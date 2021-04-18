@@ -5,13 +5,11 @@ import demo.ipConsulting.gateway.GetCountryGateway;
 import demo.ipConsulting.model.dto.IpToCountryResponse;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.Map;
 import java.util.Optional;
 
 @AllArgsConstructor
@@ -24,10 +22,10 @@ public class GetCountryGatewayImpl implements GetCountryGateway {
     private final RestTemplate restTemplate;
 
     @Override
-    public Optional<IpToCountryResponse> retrieveCountryByIP(@NonNull String ip){
+    public Optional<IpToCountryResponse> retrieveCountryByIP(@NonNull String ip) {
 
         Optional<IpToCountryResponse> optional = null;
-        
+
         try {
             final var endpoint = UriComponentsBuilder.fromHttpUrl(baseURL)
                     .path(resourceURI)
@@ -43,7 +41,7 @@ public class GetCountryGatewayImpl implements GetCountryGateway {
             if (optional.isEmpty()) {
                 throw new RuntimeException();
             }
-         } catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
         return optional;

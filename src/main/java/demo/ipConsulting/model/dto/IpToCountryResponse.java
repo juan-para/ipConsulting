@@ -11,7 +11,8 @@ import lombok.Getter;
 @EqualsAndHashCode
 @JsonDeserialize(builder = IpToCountryResponse.IpToCountryResponseBuilder.class)
 public class IpToCountryResponse {
-    private final String countryName;
+    private final String countryCode;
+    private final String countryCode3;
 
     @JsonPOJOBuilder(withPrefix = "")
     public static class IpToCountryResponseBuilder{
