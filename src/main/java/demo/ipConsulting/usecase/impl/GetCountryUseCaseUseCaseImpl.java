@@ -19,7 +19,7 @@ public class GetCountryUseCaseUseCaseImpl implements GetCountryUseCase {
     private final GetCountryGateway getCountryGateway;
 
     @Override
-    public Optional<IpToCountryResponse> retrieveCountryByIP(@NonNull String ip) {
+    public Country retrieveCountryByIP(@NonNull String ip) {
 
         // External API invocation
         // United States: 198.41.0.4
@@ -31,6 +31,6 @@ public class GetCountryUseCaseUseCaseImpl implements GetCountryUseCase {
         Country country = countryNameMapper.apply(response);
 
         // Business Logic
-        return response;
+        return country;
     }
 }

@@ -10,8 +10,8 @@ public class CountryNameMapperImpl implements CountryNameMapper {
 
     @Override
     public Country apply(Optional<IpToCountryResponse> ipToCountryResponse) {
-        if (ipToCountryResponse.isEmpty()) {
-            throw new RuntimeException("Response is empty");
+        if (ipToCountryResponse.isEmpty() || ipToCountryResponse.get().getCountryName().isEmpty()) {
+            throw new RuntimeException("Country name is not present in the response");
         }
 
         return Country.builder()
