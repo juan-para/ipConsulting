@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class CountryDataOrchestratorImpl implements CountryDataOrchestrator {
 
     GetCountryUseCase getCountryUseCase;
-    GetISOAndCurrencyUseCase getISOAndCurrencyUseCase; //debo llamar al caso de uso
+    GetISOAndCurrencyUseCase getISOAndCurrencyUseCase;
 
     @Override
     public Adress createAdressObject(@NonNull String ip) {
@@ -35,7 +35,7 @@ public class CountryDataOrchestratorImpl implements CountryDataOrchestrator {
 
         // Create the Adress object
 
-        // TODO: Create this object when calling the final API
+        // TODO: Create this object when calling the final API and add it to the adress object
         /*Country country = Country.builder()
                 .name(countryNameAndCurrency.getName())
                 .currency(countryNameAndCurrency.getCurrency())
@@ -44,7 +44,13 @@ public class CountryDataOrchestratorImpl implements CountryDataOrchestrator {
                 .build();
         System.out.println(country.toString());*/
 
-        // Store the value in the data base (check if the IP already exist in the db before calling the APIs)
+        // TODO: Store the value in the data base (CHECK IF the IP already exist in the db before calling the APIs)
+
+        // TODO: Add Return string?
+        // TODO: Add Test
+        // TODO: Check Errors, use restControllerAdvice (MainExceptionHandler.class controller package)
+        // TODO: Add docker file and how to run it
+        // TODO: Add security?
 
         //TODO: Change the return object
         return null;
