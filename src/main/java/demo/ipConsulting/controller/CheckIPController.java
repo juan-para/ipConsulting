@@ -16,6 +16,6 @@ public class CheckIPController {
     @GetMapping("/checkip/{ip}")
     public String apply(@PathVariable String ip) {
         final var response = countryDataOrchestrator.createAdressObject(ip);
-        return response.getCountry().getCurrency().getRates().toString();
+        return response.toString();
     }
 }

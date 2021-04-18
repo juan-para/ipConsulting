@@ -18,4 +18,5 @@ public class JacksonConfig {
     public ObjectMapper primaryObjectMapper(final Jackson2ObjectMapperBuilder jackson2ObjectMapperBuilder) {
         return jackson2ObjectMapperBuilder.build();
     }
+
 }
