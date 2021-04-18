@@ -14,5 +14,6 @@ public class IpToCountryResponse {
     private final String countryName;
 
     @JsonPOJOBuilder(withPrefix = "")
-    public static class IpToCountryResponseBuilder{}
+    public static class IpToCountryResponseBuilder{
+    }
 }
