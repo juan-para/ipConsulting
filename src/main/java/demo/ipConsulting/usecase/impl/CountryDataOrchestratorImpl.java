@@ -1,7 +1,5 @@
 package demo.ipConsulting.usecase.impl;
 
-import demo.ipConsulting.gateway.GetRestCountriesGateway;
-import demo.ipConsulting.model.dto.RestCountriesResponse;
 import demo.ipConsulting.model.entity.Adress;
 import demo.ipConsulting.model.entity.Country;
 import demo.ipConsulting.usecase.CountryDataOrchestrator;
@@ -10,8 +8,6 @@ import demo.ipConsulting.usecase.GetISOAndCurrencyUseCase;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.stereotype.Component;
-
-import java.util.Optional;
 
 @AllArgsConstructor
 @Component
@@ -26,13 +22,19 @@ public class CountryDataOrchestratorImpl implements CountryDataOrchestrator {
         // API call: Get the ISOs properties
         final Country countryISOs = getCountryUseCase.retrieveCountryByIP(ip);
 
-        // API call: Get the currency and Country name
-        final Country countryNameAndCurrency = getISOAndCurrencyUseCase.retrieveISOAndCurrencyByCountryName(
-                countryISOs.getIso2());
+        // API call: Get the currency and Country name by ISO
+        if (!countryISOs.getIso2().isEmpty()) {
+            final Country countryNameAndCurrency = getISOAndCurrencyUseCase.retrieveISOAndCurrencyByCountryName(
+                    countryISOs.getIso2());
+        } else {
+            final Country countryNameAndCurrency = getISOAndCurrencyUseCase.retrieveISOAndCurrencyByCountryName(
+                    countryISOs.getIso3());
+        }
 
         // API call: Get the rates for the currency
 
         // Create the Adress object
+
         // TODO: Create this object when calling the final API
         /*Country country = Country.builder()
                 .name(countryNameAndCurrency.getName())
