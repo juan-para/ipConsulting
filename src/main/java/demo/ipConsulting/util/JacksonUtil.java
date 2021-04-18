@@ -6,7 +6,7 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 public class JacksonUtil {
     public static Jackson2ObjectMapperBuilder jackson2ObjectMapperBuilder() {
         final Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder();
-        builder.propertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
+        builder.propertyNamingStrategy(PropertyNamingStrategy.LOWER_CAMEL_CASE);
         //builder.simpleDateFormat("dd-MM-yyyy");
         builder.failOnUnknownProperties(false);
 

@@ -9,11 +9,12 @@ import lombok.Getter;
 @Getter
 @Builder
 @EqualsAndHashCode
-@JsonDeserialize(builder = restCountriesResponse.restCountriesResponseBuilder.class)
-public class restCountriesResponse {
-    private final String code;
+@JsonDeserialize(builder = FixerResponse.fixerResponseBuilder.class)
+public class FixerResponse {
+    private final String USD;
+    //private final String USD; // This value is dynamic check how to load it with jackson
 
     @JsonPOJOBuilder(withPrefix = "")
-    public static class restCountriesResponseBuilder {
+    public static class fixerResponseBuilder {
     }
 }

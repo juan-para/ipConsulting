@@ -1,0 +1,31 @@
+package demo.ipConsulting.usecase.impl;
+
+import demo.ipConsulting.gateway.GetCountryGateway;
+import demo.ipConsulting.model.dto.IpToCountryResponse;
+import demo.ipConsulting.usecase.GetCountryUseCase;
+import lombok.AllArgsConstructor;
+import lombok.NonNull;
+import org.springframework.stereotype.Component;
+
+import java.util.Optional;
+
+@AllArgsConstructor
+@Component
+public class GetCountryUseCaseUseCaseImpl implements GetCountryUseCase {
+
+    private final GetCountryGateway getCountryGateway;
+
+    @Override
+    public Optional<IpToCountryResponse> retrieveCountryByIP(@NonNull String ip) {
+
+        // External API invocation
+        // United States: 198.41.0.4
+        // Germany:       5.6.7.8
+        Optional<IpToCountryResponse> response = getCountryGateway.retrieveCountryByIP(ip);
+
+        //Mapper invocation
+
+        // Business Logic
+        return response;
+    }
+}
