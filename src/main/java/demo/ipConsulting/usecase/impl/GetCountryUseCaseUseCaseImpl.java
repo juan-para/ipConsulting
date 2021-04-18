@@ -2,6 +2,9 @@ package demo.ipConsulting.usecase.impl;
 
 import demo.ipConsulting.gateway.GetCountryGateway;
 import demo.ipConsulting.model.dto.IpToCountryResponse;
+import demo.ipConsulting.model.entity.Country;
+import demo.ipConsulting.model.mapper.CountryNameMapper;
+import demo.ipConsulting.model.mapper.impl.CountryNameMapperImpl;
 import demo.ipConsulting.usecase.GetCountryUseCase;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
@@ -24,6 +27,8 @@ public class GetCountryUseCaseUseCaseImpl implements GetCountryUseCase {
         Optional<IpToCountryResponse> response = getCountryGateway.retrieveCountryByIP(ip);
 
         //Mapper invocation
+        CountryNameMapper countryNameMapper = new CountryNameMapperImpl();
+        Country country = countryNameMapper.apply(response);
 
         // Business Logic
         return response;
