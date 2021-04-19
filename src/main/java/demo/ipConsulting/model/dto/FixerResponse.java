@@ -1,5 +1,6 @@
 package demo.ipConsulting.model.dto;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.Builder;
@@ -11,8 +12,7 @@ import lombok.Getter;
 @EqualsAndHashCode
 @JsonDeserialize(builder = FixerResponse.FixerResponseBuilder.class)
 public class FixerResponse {
-    private final String USD;
-    //private final String USD; // This value is dynamic check how to load it with jackson
+    private final JsonNode rates;
 
     @JsonPOJOBuilder(withPrefix = "")
     public static class FixerResponseBuilder {
