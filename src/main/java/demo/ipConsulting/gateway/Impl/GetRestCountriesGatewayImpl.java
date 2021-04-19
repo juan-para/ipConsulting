@@ -23,6 +23,9 @@ import java.util.Optional;
 @Component
 public class GetRestCountriesGatewayImpl implements GetRestCountriesGateway {
 
+    // TODO: Check the documentation for a more performance request like
+    //  https://restcountries.eu/rest/v2/all?fields=name;capital;currencies
+
     // https://restcountries.eu/rest/v2/alpha/us
 
     private final String baseURL = "https://restcountries.eu/rest/v2";

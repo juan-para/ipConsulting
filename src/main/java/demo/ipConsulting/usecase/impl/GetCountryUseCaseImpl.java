@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @Component
-public class GetCountryUseCaseUseCaseImpl implements GetCountryUseCase {
+public class GetCountryUseCaseImpl implements GetCountryUseCase {
 
     private final GetCountryGateway getCountryGateway;
 
