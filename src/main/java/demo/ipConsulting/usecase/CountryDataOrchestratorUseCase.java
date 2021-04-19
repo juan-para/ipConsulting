@@ -4,6 +4,6 @@ import demo.ipConsulting.model.entity.Adress;
 import lombok.NonNull;
 
 @FunctionalInterface
-public interface CountryDataOrchestrator {
+public interface CountryDataOrchestratorUseCase {
     Adress createAddressObject(@NonNull String ip);
 }

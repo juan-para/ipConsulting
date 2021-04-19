@@ -4,7 +4,7 @@ import demo.ipConsulting.model.entity.Adress;
 import demo.ipConsulting.model.entity.Country;
 import demo.ipConsulting.model.entity.Currency;
 import demo.ipConsulting.model.entity.Rates;
-import demo.ipConsulting.usecase.CountryDataOrchestrator;
+import demo.ipConsulting.usecase.CountryDataOrchestratorUseCase;
 import demo.ipConsulting.usecase.GetCountryUseCase;
 import demo.ipConsulting.usecase.GetCurrencyUseCase;
 import demo.ipConsulting.usecase.GetISOAndCurrencyUseCase;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @AllArgsConstructor
 @Component
-public class CountryDataOrchestratorImpl implements CountryDataOrchestrator {
+public class CountryDataOrchestratorUseCaseImpl implements CountryDataOrchestratorUseCase {
 
     GetCountryUseCase getCountryUseCase;
     GetISOAndCurrencyUseCase getISOAndCurrencyUseCase;
@@ -70,6 +70,4 @@ public class CountryDataOrchestratorImpl implements CountryDataOrchestrator {
         //TODO: Change the return object
         return adress;
     }
-
-
 }
