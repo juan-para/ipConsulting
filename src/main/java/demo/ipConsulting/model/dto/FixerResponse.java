@@ -2,6 +2,7 @@ package demo.ipConsulting.model.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import demo.ipConsulting.model.entity.Rates;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -11,8 +12,7 @@ import lombok.Getter;
 @EqualsAndHashCode
 @JsonDeserialize(builder = FixerResponse.FixerResponseBuilder.class)
 public class FixerResponse {
-    private final String USD;
-    //private final String USD; // This value is dynamic check how to load it with jackson
+    private final Rates rates;
 
     @JsonPOJOBuilder(withPrefix = "")
     public static class FixerResponseBuilder {

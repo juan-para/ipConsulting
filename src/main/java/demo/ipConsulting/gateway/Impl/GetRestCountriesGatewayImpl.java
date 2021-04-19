@@ -1,21 +1,14 @@
 package demo.ipConsulting.gateway.Impl;
 
 import demo.ipConsulting.gateway.GetRestCountriesGateway;
-import demo.ipConsulting.model.dto.IpToCountryResponse;
 import demo.ipConsulting.model.dto.RestCountriesResponse;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.ClientHttpRequestFactory;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.net.http.HttpClient;
-import java.util.Collections;
 import java.util.Map;
 import java.util.Optional;
 
@@ -42,7 +35,7 @@ public class GetRestCountriesGatewayImpl implements GetRestCountriesGateway {
                     .path(resourceURI)
                     .build().toUriString();
 
-            final var params = Map.of("alphaCode", alphaCode); // url.../{countryName}
+            final var params = Map.of("alphaCode", alphaCode);
 
             optional = Optional.of(
                     restTemplate.getForEntity(

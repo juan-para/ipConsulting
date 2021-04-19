@@ -5,5 +5,5 @@ import lombok.NonNull;
 
 @FunctionalInterface
 public interface CountryDataOrchestrator {
-    Adress createAdressObject(@NonNull String ip);
+    Adress createAddressObject(@NonNull String ip);
 }

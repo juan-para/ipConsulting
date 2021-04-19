@@ -2,8 +2,10 @@ package demo.ipConsulting.usecase.impl;
 
 import demo.ipConsulting.model.entity.Adress;
 import demo.ipConsulting.model.entity.Country;
+import demo.ipConsulting.model.entity.Rates;
 import demo.ipConsulting.usecase.CountryDataOrchestrator;
 import demo.ipConsulting.usecase.GetCountryUseCase;
+import demo.ipConsulting.usecase.GetCurrencyUseCase;
 import demo.ipConsulting.usecase.GetISOAndCurrencyUseCase;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
@@ -15,23 +17,27 @@ public class CountryDataOrchestratorImpl implements CountryDataOrchestrator {
 
     GetCountryUseCase getCountryUseCase;
     GetISOAndCurrencyUseCase getISOAndCurrencyUseCase;
+    GetCurrencyUseCase getCurrencyUseCase;
 
     @Override
-    public Adress createAdressObject(@NonNull String ip) {
+    public Adress createAddressObject(@NonNull String ip) {
 
         // API call: Get the ISOs properties
-        final Country countryISOs = getCountryUseCase.retrieveCountryByIP(ip);
+        Country countryISOs = getCountryUseCase.retrieveCountryByIP(ip);
 
         // API call: Get the currency and Country name by ISO
+        Country countryNameAndCurrency;
         if (!countryISOs.getIso2().isEmpty()) {
-            final Country countryNameAndCurrency = getISOAndCurrencyUseCase.retrieveISOAndCurrencyByCountryName(
+            countryNameAndCurrency = getISOAndCurrencyUseCase.retrieveISOAndCurrencyByCountryName(
                     countryISOs.getIso2());
         } else {
-            final Country countryNameAndCurrency = getISOAndCurrencyUseCase.retrieveISOAndCurrencyByCountryName(
+            countryNameAndCurrency = getISOAndCurrencyUseCase.retrieveISOAndCurrencyByCountryName(
                     countryISOs.getIso3());
         }
 
         // API call: Get the rates for the currency
+        Rates rate = getCurrencyUseCase.retrieveCurrenciesRatesByCurrencyCode(countryNameAndCurrency
+                .getCurrency().getCode());
 
         // Create the Adress object
 
