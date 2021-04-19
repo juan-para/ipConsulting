@@ -25,8 +25,8 @@ public class GetCurrencyUseCaseImpl implements GetCurrencyUseCase {
 
         //Mapper invocation
         CurrencyMapper currencyMapper = new CurrencyMapperImpl();
-        Rates rates = currencyMapper.apply(response);
+        Rates rates = currencyMapper.apply(response, currecyCode);
 
-        return null;
+        return rates;
     }
 }

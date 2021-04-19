@@ -2,6 +2,7 @@ package demo.ipConsulting.usecase.impl;
 
 import demo.ipConsulting.model.entity.Adress;
 import demo.ipConsulting.model.entity.Country;
+import demo.ipConsulting.model.entity.Currency;
 import demo.ipConsulting.model.entity.Rates;
 import demo.ipConsulting.usecase.CountryDataOrchestrator;
 import demo.ipConsulting.usecase.GetCountryUseCase;
@@ -36,19 +37,28 @@ public class CountryDataOrchestratorImpl implements CountryDataOrchestrator {
         }
 
         // API call: Get the rates for the currency
-        Rates rate = getCurrencyUseCase.retrieveCurrenciesRatesByCurrencyCode(countryNameAndCurrency
+        Rates rates = getCurrencyUseCase.retrieveCurrenciesRatesByCurrencyCode(countryNameAndCurrency
                 .getCurrency().getCode());
 
         // Create the Adress object
-
-        // TODO: Create this object when calling the final API and add it to the adress object
-        /*Country country = Country.builder()
+        Currency currency = Currency.builder()
+                .code(countryNameAndCurrency.getCurrency().getCode())
                 .name(countryNameAndCurrency.getName())
-                .currency(countryNameAndCurrency.getCurrency())
+                .rates(rates)
+                .build();
+
+        Country country = Country.builder()
+                .name(countryNameAndCurrency.getName())
+                .currency(currency)
                 .iso2(countryISOs.getIso2())
                 .iso3(countryISOs.getIso3())
                 .build();
-        System.out.println(country.toString());*/
+
+        Adress adress = Adress.builder()
+                .country(country)
+                .ip(ip)
+                .build();
+
 
         // TODO: Store the value in the data base (CHECK IF the IP already exist in the db before calling the APIs)
 
@@ -59,7 +69,7 @@ public class CountryDataOrchestratorImpl implements CountryDataOrchestrator {
         // TODO: Add security?
 
         //TODO: Change the return object
-        return null;
+        return adress;
     }
 
 

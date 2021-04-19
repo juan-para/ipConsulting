@@ -36,8 +36,9 @@ public class GetFixerGatewayImpl implements GetFixerGateway {
                     .build().toUriString();
 
             if(!currencyCode.equals("USD")){
-                currencyCode = "USD, " + currencyCode;
+                currencyCode = "USD," + currencyCode;
             }
+
             final var params = Map.of(
                     "symbols", currencyCode,
                     "format", 1);
