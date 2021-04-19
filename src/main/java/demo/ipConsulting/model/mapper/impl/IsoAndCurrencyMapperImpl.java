@@ -18,7 +18,6 @@ public class IsoAndCurrencyMapperImpl implements IsoAndCurrencyMapper {
         // TODO: Check if a country has more than one currency
         Currency currency = Currency.builder()
                 .code(restCountriesResponse.get().getCurrencies().get(0).getCode())
-                .name(restCountriesResponse.get().getCurrencies().get(0).getName())
                 .build();
 
         return Country.builder()

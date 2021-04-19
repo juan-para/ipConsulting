@@ -11,7 +11,6 @@ import lombok.ToString;
 @ToString
 public class Currency {
     private String code;
-    private String name;
     private Rates rates;
 
     public Currency(){

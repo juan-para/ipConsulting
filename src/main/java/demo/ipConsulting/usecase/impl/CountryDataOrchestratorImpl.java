@@ -43,7 +43,6 @@ public class CountryDataOrchestratorImpl implements CountryDataOrchestrator {
         // Create the Adress object
         Currency currency = Currency.builder()
                 .code(countryNameAndCurrency.getCurrency().getCode())
-                .name(countryNameAndCurrency.getName())
                 .rates(rates)
                 .build();
 
