@@ -22,7 +22,7 @@ public class UserCommandLineRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         log.info("creating some database records");
 
-        dataBaseGenericTableService.save(DataBaseGenericTable.builder()
+        dataBaseGenericTableService.saveOrUpdateData(DataBaseGenericTable.builder()
                 .ip("5.6.7.8")
                 .countryName("Germany")
                 .currencyCode("EUR")
@@ -33,7 +33,7 @@ public class UserCommandLineRunner implements CommandLineRunner {
                 .blocked(false)
                 .build());
 
-        dataBaseGenericTableService.save(DataBaseGenericTable.builder()
+        dataBaseGenericTableService.saveOrUpdateData(DataBaseGenericTable.builder()
                 .ip("1.2.3.4")
                 .blocked(true)
                 .build());

@@ -19,7 +19,7 @@ public class DataBaseGenericTableService {
         // TODO: is probably better to use lambdas here and in the mapper classes
         List<DataBaseGenericTable> blockedIPs = new ArrayList<>();
         for (DataBaseGenericTable adressIP : repository.findAll()) {
-            if (adressIP.isBlocked()){
+            if (adressIP.isBlocked()) {
                 blockedIPs.add(adressIP);
             }
         }
@@ -28,23 +28,19 @@ public class DataBaseGenericTableService {
 
     public DataBaseGenericTable findByIP(String ip) {
         for (DataBaseGenericTable adressIP : repository.findAll()) {
-            if (adressIP.getIp().equals(ip)){
+            if (adressIP.getIp().equals(ip)) {
                 return adressIP;
             }
         }
         return null;
     }
 
-    public DataBaseGenericTable save(DataBaseGenericTable dataBaseGenericTable) {
-        return repository.save(dataBaseGenericTable);
-    }
-
-    public DataBaseGenericTable updateData(DataBaseGenericTable dataBaseGenericTable) {
-        Optional<DataBaseGenericTable> temporal = repository.findById(dataBaseGenericTable.getId());
-        if(!temporal.isPresent()){
-            return null;
+    public DataBaseGenericTable saveOrUpdateData(DataBaseGenericTable dataBaseGenericTable) {
+        Optional<DataBaseGenericTable> temporal = Optional.ofNullable(findByIP(dataBaseGenericTable.getIp()));
+        if (temporal.isPresent()) {
+            repository.delete(temporal.get());
+            return repository.save(dataBaseGenericTable);
         }
-        repository.delete(temporal.get());
         return repository.save(dataBaseGenericTable);
     }
 }
