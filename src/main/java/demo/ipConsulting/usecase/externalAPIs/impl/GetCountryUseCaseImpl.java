@@ -1,11 +1,11 @@
-package demo.ipConsulting.usecase.impl;
+package demo.ipConsulting.usecase.externalAPIs.impl;
 
 import demo.ipConsulting.gateway.externalAPIs.GetCountryGateway;
 import demo.ipConsulting.model.dto.IpToCountryResponse;
 import demo.ipConsulting.model.entity.Country;
 import demo.ipConsulting.model.mapper.CountryNameMapper;
 import demo.ipConsulting.model.mapper.impl.CountryNameMapperImpl;
-import demo.ipConsulting.usecase.GetCountryUseCase;
+import demo.ipConsulting.usecase.externalAPIs.GetCountryUseCase;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.stereotype.Component;

@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserCommandLineRunner implements CommandLineRunner {
-
-    // http://localhost:8080/h2-console/
+    // This class runs as soon as the proyect is deployed, i use it to generate a couple of records in the database
+    // Connection URL: http://localhost:8080/h2-console/
 
     private static final Logger log = LoggerFactory.getLogger(UserCommandLineRunner.class);
 
@@ -22,7 +22,7 @@ public class UserCommandLineRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         log.info("creating some database records");
 
-        dataBaseGenericTableService.save(DataBaseGenericTable.builder()
+        dataBaseGenericTableService.saveOrUpdateData(DataBaseGenericTable.builder()
                 .ip("5.6.7.8")
                 .countryName("Germany")
                 .currencyCode("EUR")
@@ -33,7 +33,7 @@ public class UserCommandLineRunner implements CommandLineRunner {
                 .blocked(false)
                 .build());
 
-        dataBaseGenericTableService.save(DataBaseGenericTable.builder()
+        dataBaseGenericTableService.saveOrUpdateData(DataBaseGenericTable.builder()
                 .ip("1.2.3.4")
                 .blocked(true)
                 .build());

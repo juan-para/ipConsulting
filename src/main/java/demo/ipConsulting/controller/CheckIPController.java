@@ -1,7 +1,7 @@
 package demo.ipConsulting.controller;
 
 import demo.ipConsulting.model.entity.Adress;
-import demo.ipConsulting.usecase.CountryDataOrchestratorUseCase;
+import demo.ipConsulting.usecase.orchestrator.CountryDataOrchestratorUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,13 +1,13 @@
-package demo.ipConsulting.usecase.impl;
+package demo.ipConsulting.usecase.orchestrator.impl;
 
 import demo.ipConsulting.model.entity.Adress;
 import demo.ipConsulting.model.entity.Country;
 import demo.ipConsulting.model.entity.Currency;
 import demo.ipConsulting.model.entity.Rates;
-import demo.ipConsulting.usecase.CountryDataOrchestratorUseCase;
-import demo.ipConsulting.usecase.GetCountryUseCase;
-import demo.ipConsulting.usecase.GetCurrencyUseCase;
-import demo.ipConsulting.usecase.GetISOAndCurrencyUseCase;
+import demo.ipConsulting.usecase.orchestrator.CountryDataOrchestratorUseCase;
+import demo.ipConsulting.usecase.externalAPIs.GetCountryUseCase;
+import demo.ipConsulting.usecase.externalAPIs.GetCurrencyUseCase;
+import demo.ipConsulting.usecase.externalAPIs.GetISOAndCurrencyUseCase;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.stereotype.Component;
