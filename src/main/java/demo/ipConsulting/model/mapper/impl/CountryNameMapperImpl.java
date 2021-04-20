@@ -1,5 +1,6 @@
 package demo.ipConsulting.model.mapper.impl;
 
+import demo.ipConsulting.exception.IPAddressException;
 import demo.ipConsulting.model.dto.IpToCountryResponse;
 import demo.ipConsulting.model.entity.Country;
 import demo.ipConsulting.model.entity.Currency;
@@ -12,7 +13,7 @@ public class CountryNameMapperImpl implements CountryNameMapper {
     @Override
     public Country apply(Optional<IpToCountryResponse> ipToCountryResponse) {
         if (ipToCountryResponse.isEmpty() || ipToCountryResponse.get().getCountryCode().isEmpty()) {
-            throw new RuntimeException("Country name is not present in the response");
+            throw new IPAddressException("Country name is not present in the response");
         }
 
         return Country.builder()

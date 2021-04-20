@@ -1,5 +1,6 @@
 package demo.ipConsulting.usecase.orchestrator.impl;
 
+import demo.ipConsulting.exception.IPAddressException;
 import demo.ipConsulting.model.entity.Adress;
 import demo.ipConsulting.model.entity.Country;
 import demo.ipConsulting.model.entity.Currency;
@@ -26,25 +27,39 @@ public class CountryDataOrchestratorUseCaseImpl implements CountryDataOrchestrat
 
         // ip has the correct format
         if(!IPAddressValidator.isValidIPAddress(ip)){
-            throw new RuntimeException();
+            throw new IPAddressException("IP does not match regex");
         }
 
         // API call: Get the ISOs properties
-        Country countryISOs = getCountryUseCase.retrieveCountryByIP(ip);
+        Country countryISOs = null;
+        try {
+            countryISOs = getCountryUseCase.retrieveCountryByIP(ip);
+        } catch (Exception e) {
+            throw new IPAddressException("Error when calling the use case GetCountryUseCaseImpl", e);
+        }
 
         // API call: Get the currency and Country name by ISO
         Country countryNameAndCurrency;
-        if (!countryISOs.getIso2().isEmpty()) {
-            countryNameAndCurrency = getISOAndCurrencyUseCase.retrieveISOAndCurrencyByCountryName(
-                    countryISOs.getIso2());
-        } else {
-            countryNameAndCurrency = getISOAndCurrencyUseCase.retrieveISOAndCurrencyByCountryName(
-                    countryISOs.getIso3());
+        try {
+            if (!countryISOs.getIso2().isEmpty()) {
+                countryNameAndCurrency = getISOAndCurrencyUseCase.retrieveISOAndCurrencyByCountryName(
+                        countryISOs.getIso2());
+            } else {
+                countryNameAndCurrency = getISOAndCurrencyUseCase.retrieveISOAndCurrencyByCountryName(
+                        countryISOs.getIso3());
+            }
+        } catch (Exception e) {
+            throw new IPAddressException("Error when calling the use case GetISOAndCurrencyUseCaseImpl", e);
         }
 
         // API call: Get the rates for the currency
-        Rates rates = getCurrencyUseCase.retrieveCurrenciesRatesByCurrencyCode(countryNameAndCurrency
-                .getCurrency().getCode());
+        Rates rates = null;
+        try {
+            rates = getCurrencyUseCase.retrieveCurrenciesRatesByCurrencyCode(countryNameAndCurrency
+                    .getCurrency().getCode());
+        } catch (Exception e) {
+            throw new IPAddressException("Error when calling the use case GetCurrencyUseCaseImpl", e);
+        }
 
         // Create the Adress object
         Currency currency = Currency.builder()

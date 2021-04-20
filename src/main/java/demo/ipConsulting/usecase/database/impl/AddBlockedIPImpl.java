@@ -1,5 +1,6 @@
 package demo.ipConsulting.usecase.database.impl;
 
+import demo.ipConsulting.exception.IPAddressException;
 import demo.ipConsulting.gateway.database.service.DataBaseGenericTableService;
 import demo.ipConsulting.model.dataBase.DataBaseGenericTable;
 import demo.ipConsulting.usecase.database.AddBlockedIP;
@@ -18,7 +19,7 @@ public class AddBlockedIPImpl implements AddBlockedIP {
     public void blockIP(@NonNull String ip) {
         // ip has the correct format
         if (!IPAddressValidator.isValidIPAddress(ip)) {
-            throw new RuntimeException();
+            throw new IPAddressException("IP does not match regex");
         }
 
         try {
@@ -27,7 +28,7 @@ public class AddBlockedIPImpl implements AddBlockedIP {
                     .blocked(true)
                     .build());
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new IPAddressException("Error when calling the use case DataBaseGenericTableServiceImpl", e);
         }
     }
 }
