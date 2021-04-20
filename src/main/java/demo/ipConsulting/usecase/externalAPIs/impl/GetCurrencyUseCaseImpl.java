@@ -1,11 +1,11 @@
-package demo.ipConsulting.usecase.impl;
+package demo.ipConsulting.usecase.externalAPIs.impl;
 
 import demo.ipConsulting.gateway.externalAPIs.GetFixerGateway;
 import demo.ipConsulting.model.dto.FixerResponse;
 import demo.ipConsulting.model.entity.Rates;
 import demo.ipConsulting.model.mapper.CurrencyMapper;
 import demo.ipConsulting.model.mapper.impl.CurrencyMapperImpl;
-import demo.ipConsulting.usecase.GetCurrencyUseCase;
+import demo.ipConsulting.usecase.externalAPIs.GetCurrencyUseCase;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.stereotype.Component;

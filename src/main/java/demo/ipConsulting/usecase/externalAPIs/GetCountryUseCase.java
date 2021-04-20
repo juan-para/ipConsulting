@@ -1,4 +1,4 @@
-package demo.ipConsulting.usecase;
+package demo.ipConsulting.usecase.externalAPIs;
 
 
 import demo.ipConsulting.model.entity.Country;

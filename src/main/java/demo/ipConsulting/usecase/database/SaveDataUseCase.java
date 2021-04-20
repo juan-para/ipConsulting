@@ -1,4 +1,4 @@
-package demo.ipConsulting.usecase;
+package demo.ipConsulting.usecase.database;
 
 import demo.ipConsulting.model.dataBase.DataBaseGenericTable;
 import lombok.NonNull;

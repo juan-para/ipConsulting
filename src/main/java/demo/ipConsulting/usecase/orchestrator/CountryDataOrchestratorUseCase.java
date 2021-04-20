@@ -1,4 +1,4 @@
-package demo.ipConsulting.usecase;
+package demo.ipConsulting.usecase.orchestrator;
 
 import demo.ipConsulting.model.entity.Adress;
 import lombok.NonNull;
