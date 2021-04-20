@@ -8,6 +8,7 @@ import demo.ipConsulting.usecase.orchestrator.CountryDataOrchestratorUseCase;
 import demo.ipConsulting.usecase.externalAPIs.GetCountryUseCase;
 import demo.ipConsulting.usecase.externalAPIs.GetCurrencyUseCase;
 import demo.ipConsulting.usecase.externalAPIs.GetISOAndCurrencyUseCase;
+import demo.ipConsulting.util.IPAddressValidator;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.stereotype.Component;
@@ -22,6 +23,11 @@ public class CountryDataOrchestratorUseCaseImpl implements CountryDataOrchestrat
 
     @Override
     public Adress createAddressObject(@NonNull String ip) {
+
+        // ip has the correct format
+        if(!IPAddressValidator.isValidIPAddress(ip)){
+            throw new RuntimeException();
+        }
 
         // API call: Get the ISOs properties
         Country countryISOs = getCountryUseCase.retrieveCountryByIP(ip);
