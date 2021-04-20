@@ -1,6 +1,6 @@
-package demo.ipConsulting.gateway.Impl;
+package demo.ipConsulting.gateway.externalAPIs.Impl;
 
-import demo.ipConsulting.gateway.GetFixerGateway;
+import demo.ipConsulting.gateway.externalAPIs.GetFixerGateway;
 import demo.ipConsulting.model.dto.FixerResponse;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;

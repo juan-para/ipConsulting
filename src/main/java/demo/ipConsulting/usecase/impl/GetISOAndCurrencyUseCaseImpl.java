@@ -1,6 +1,6 @@
 package demo.ipConsulting.usecase.impl;
 
-import demo.ipConsulting.gateway.GetRestCountriesGateway;
+import demo.ipConsulting.gateway.externalAPIs.GetRestCountriesGateway;
 import demo.ipConsulting.model.dto.RestCountriesResponse;
 import demo.ipConsulting.model.entity.Country;
 import demo.ipConsulting.model.mapper.IsoAndCurrencyMapper;

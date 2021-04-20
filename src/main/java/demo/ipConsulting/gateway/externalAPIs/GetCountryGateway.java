@@ -1,4 +1,4 @@
-package demo.ipConsulting.gateway;
+package demo.ipConsulting.gateway.externalAPIs;
 
 import demo.ipConsulting.model.dto.IpToCountryResponse;
 import lombok.NonNull;

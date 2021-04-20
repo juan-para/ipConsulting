@@ -63,6 +63,7 @@ public class CountryDataOrchestratorUseCaseImpl implements CountryDataOrchestrat
 
         // TODO: Add Return string?
         // TODO: Add Test
+        // TODO: Check cuntries with more than one currency
         // TODO: Check Errors, use restControllerAdvice (MainExceptionHandler.class controller package)
         // TODO: Add docker file and how to run it
         // TODO: Add security?

@@ -1,6 +1,6 @@
 package demo.ipConsulting.usecase.impl;
 
-import demo.ipConsulting.gateway.GetCountryGateway;
+import demo.ipConsulting.gateway.externalAPIs.GetCountryGateway;
 import demo.ipConsulting.model.dto.IpToCountryResponse;
 import demo.ipConsulting.model.entity.Country;
 import demo.ipConsulting.model.mapper.CountryNameMapper;

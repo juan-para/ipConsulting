@@ -1,6 +1,6 @@
 package demo.ipConsulting.usecase.impl;
 
-import demo.ipConsulting.gateway.GetFixerGateway;
+import demo.ipConsulting.gateway.externalAPIs.GetFixerGateway;
 import demo.ipConsulting.model.dto.FixerResponse;
 import demo.ipConsulting.model.entity.Rates;
 import demo.ipConsulting.model.mapper.CurrencyMapper;
