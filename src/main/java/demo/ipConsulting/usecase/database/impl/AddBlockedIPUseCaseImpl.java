@@ -6,16 +6,15 @@ import demo.ipConsulting.model.dataBase.DataBaseGenericTable;
 import demo.ipConsulting.model.dto.BlockIPResponse;
 import demo.ipConsulting.model.mapper.BlockIPResponseMapper;
 import demo.ipConsulting.model.mapper.impl.BlockIPResponseMapperImpl;
-import demo.ipConsulting.usecase.database.AddBlockedIP;
+import demo.ipConsulting.usecase.database.AddBlockedIPUseCase;
 import demo.ipConsulting.util.IPAddressValidator;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 @AllArgsConstructor
 @Component
-public class AddBlockedIPImpl implements AddBlockedIP {
+public class AddBlockedIPUseCaseImpl implements AddBlockedIPUseCase {
 
     DataBaseGenericTableService dataBaseGenericTableService;
 

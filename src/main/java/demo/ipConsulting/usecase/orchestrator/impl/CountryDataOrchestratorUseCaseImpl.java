@@ -5,10 +5,12 @@ import demo.ipConsulting.model.entity.Adress;
 import demo.ipConsulting.model.entity.Country;
 import demo.ipConsulting.model.entity.Currency;
 import demo.ipConsulting.model.entity.Rates;
-import demo.ipConsulting.usecase.orchestrator.CountryDataOrchestratorUseCase;
+import demo.ipConsulting.usecase.database.AddCheckIPUseCase;
+import demo.ipConsulting.usecase.database.CheckIpRecordUseCase;
 import demo.ipConsulting.usecase.externalAPIs.GetCountryUseCase;
 import demo.ipConsulting.usecase.externalAPIs.GetCurrencyUseCase;
 import demo.ipConsulting.usecase.externalAPIs.GetISOAndCurrencyUseCase;
+import demo.ipConsulting.usecase.orchestrator.CountryDataOrchestratorUseCase;
 import demo.ipConsulting.util.IPAddressValidator;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
@@ -21,13 +23,20 @@ public class CountryDataOrchestratorUseCaseImpl implements CountryDataOrchestrat
     GetCountryUseCase getCountryUseCase;
     GetISOAndCurrencyUseCase getISOAndCurrencyUseCase;
     GetCurrencyUseCase getCurrencyUseCase;
+    AddCheckIPUseCase addCheckIPUseCase;
+    CheckIpRecordUseCase checkIpRecordUseCase;
 
     @Override
     public Adress createAddressObject(@NonNull String ip) {
 
         // ip has the correct format
-        if(!IPAddressValidator.isValidIPAddress(ip)){
+        if (!IPAddressValidator.isValidIPAddress(ip)) {
             throw new IPAddressException("IP does not match regex");
+        }
+
+        // If exist IP with all the fields already loaded, then i do not consume the APIs
+        if (checkIpRecordUseCase.checkIpExistence(ip)) {
+            throw new IPAddressException("IP already in the database");
         }
 
         // API call: Get the ISOs properties
@@ -79,6 +88,7 @@ public class CountryDataOrchestratorUseCaseImpl implements CountryDataOrchestrat
                 .ip(ip)
                 .build();
 
+        addCheckIPUseCase.AddAddress(adress);
 
         // TODO: Store the value in the data base (CHECK IF the IP already exist in the db before calling the APIs)
 

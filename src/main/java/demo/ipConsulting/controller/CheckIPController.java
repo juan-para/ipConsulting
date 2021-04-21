@@ -1,6 +1,7 @@
 package demo.ipConsulting.controller;
 
 import demo.ipConsulting.model.entity.Adress;
+import demo.ipConsulting.usecase.database.AddCheckIPUseCase;
 import demo.ipConsulting.usecase.orchestrator.CountryDataOrchestratorUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 public class CheckIPController {
+
 
     CountryDataOrchestratorUseCase countryDataOrchestratorUseCase;
     //LinkedList queue;
