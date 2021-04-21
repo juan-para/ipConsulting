@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class MainExceptionHandler {
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(Exception.class)
     public ErrorResponse genericException(final Exception e) {
         return ErrorResponse.builder()
@@ -19,12 +19,12 @@ public class MainExceptionHandler {
                 .build();
     }
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(IPAddressException.class)
     public ErrorResponse handleIPAddressException(final IPAddressException e) {
         return ErrorResponse.builder()
                 .errorType("There was an unexpected error")
-                .description(e.getMessage())
+                .description(e.getFailingService())
                 .build();
     }
 }
