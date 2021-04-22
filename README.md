@@ -4,7 +4,7 @@ Bienvenido! El objetivo de esta API REST es brindar en base a una IP dada, infor
 y monetaria. Los datos que se retornan son: Nombre del pais, codigos ISO, moneda del pais y el valor de 
 de la moneda respecto del dolar/euro.
 
-Las tecnologias que utilice:
+**Las tecnologias que utilice:**
 - Maven
 - Spring
 - Regex
@@ -15,10 +15,14 @@ Las tecnologias que utilice:
 - Base de datos en memoria H2
 - Docker
 
-Se exponen 2 endpoint HTTP GET:
+**Se exponen 2 endpoint HTTP GET:**
 - Para realizar la consulta
   - ```localhost:8080/checkip/{ip}```
-  
+  - Su respuesta seria
+    ```
+    Completar...
+    ```  
+
 - Para bloquear determinada IP
   - ```localhost:8080/blockip/{ip}```
   - Su respuesta seria
@@ -28,8 +32,15 @@ Se exponen 2 endpoint HTTP GET:
     "blockedStatus": true
     }
     ```
-    
-Para levantar el proyecto:
+**La respuesta generica de error:**
+```
+  {
+  "errorType": "Generic error",
+  "description": descripcion del error...
+  }
+```
+
+**Para levantar el proyecto:**
 - Generar el artefacto .jar
     - ```mvn clean package```
 - Crear la imagen
@@ -37,10 +48,3 @@ Para levantar el proyecto:
 - Levantar la imagen  
     - ```sudo docker run -d -p 8080:8080 -t ip-consulting:1.0```
 
-La respuesta generica de error:
-```
-  {
-  "errorType": "Generic error",
-  "description": descripcion del error...
-  }
-```
