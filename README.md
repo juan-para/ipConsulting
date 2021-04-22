@@ -1,8 +1,8 @@
 # IPConsulting project
 
 Bienvenido! El objetivo de esta API REST es brindar en base a una IP dada, informacion de geolocalizacion
-y monetaria. Los datos que se retornan son: Nombre del pais, codigos ISO, moneda del pais,
-ratios de conversion de la moneda del pais contra el dolar y el euro.
+y monetaria. Los datos que se retornan son: Nombre del pais, codigos ISO, moneda del pais y el valor de 
+de la moneda respecto del dolar/euro.
 
 Las tecnologias que utilice:
 - Maven
