@@ -5,10 +5,10 @@ el nombre el pais, codigos ISO, moneda y ratios de conversion contra el dolar y 
 
 Se exponen 2 endpoint HTTP GET:
 - Para realizar la consulta
-  localhost:8080/checkip/{ip}
+  - localhost:8080/checkip/{ip}
   
 - Para bloquear que realize la consulta una IP
-  localhost:8080/blockip/{ip}
+  - localhost:8080/blockip/{ip}
 
 Las tecnologias que utilice:
 - Maven
@@ -24,8 +24,8 @@ Las tecnologias que utilice:
 
 Para levantar el proyecto:
 - Generar el artefacto .jar
-    mvn clean package 
+    - mvn clean package 
 - Crear la imagen
-    docker build -t ip-consulting:1.0 .
+    - docker build -t ip-consulting:1.0 .
 - Levantar la imagen  
-    sudo docker run -d -p 8080:8080 -t ip-consulting:1.0
+    - sudo docker run -d -p 8080:8080 -t ip-consulting:1.0
