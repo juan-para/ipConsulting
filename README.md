@@ -18,14 +18,14 @@ de la moneda respecto del dolar/euro.
 **Se exponen 2 endpoint HTTP GET:**
 - Para realizar la consulta
   - ```localhost:8080/checkip/{ip}```
-  - Su respuesta seria
+  - Su respuesta JSON seria
     ```
     Completar...
     ```  
 
 - Para bloquear determinada IP
   - ```localhost:8080/blockip/{ip}```
-  - Su respuesta seria
+  - Su respuesta JSON seria
     ```
     {
     "ip": "5.6.7.8",
