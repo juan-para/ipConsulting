@@ -10,7 +10,6 @@ Las tecnologias que utilice:
 - Regex
 - Lombok
 - Arquitectura hexagonal
-- Request Methods: GET
 - Manejo unificado de excepciones con @RestControllerAdvice
 - Serializacion y deserializacion con Jackson
 - Base de datos en memoria H2
