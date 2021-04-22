@@ -21,6 +21,13 @@ Se exponen 2 endpoint HTTP GET:
   
 - Para bloquear determinada IP
   - ```localhost:8080/blockip/{ip}```
+  - Su respuesta seria
+    ```
+    {
+    "ip": "5.6.7.8",
+    "blockedStatus": true
+    }
+    ```
     
 Para levantar el proyecto:
 - Generar el artefacto .jar
@@ -34,6 +41,6 @@ La respuesta generica de error:
 ```
   {
   "errorType": "Generic error",
-  "description": null
+  "description": descripcion del error...
   }
 ```
