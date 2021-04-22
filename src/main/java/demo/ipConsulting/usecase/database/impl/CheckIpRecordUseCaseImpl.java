@@ -18,7 +18,7 @@ public class CheckIpRecordUseCaseImpl implements CheckIpRecordUseCase {
     public boolean checkIpExistence(@NonNull String ip) {
         DataBaseGenericTable getTable = dataBaseGenericTableService.findByIP(ip);
 
-        if (!getTable.getIp().equals("") && getTable != null) {
+        if (getTable != null) {
             return true;
         }
         return false;
