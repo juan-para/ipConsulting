@@ -1,20 +1,14 @@
 # IPConsulting project
 
-Este proyecto consume 3 apis externas de las cuales obtenemos, a partir de una IP,
-el nombre el pais, codigos ISO, moneda y ratios de conversion contra el dolar y el euro.
-
-Se exponen 2 endpoint HTTP GET:
-- Para realizar la consulta
-  - localhost:8080/checkip/{ip}
-  
-- Para bloquear que realize la consulta una IP
-  - localhost:8080/blockip/{ip}
+Bienvenido! El objetivo de esta API REST es brindar en base a una IP dada, informacion de geolocalizacion
+y monetaria. Los datos que se retornan son: Nombre del pais, codigos ISO, moneda del pais,
+ratios de conversion de la moneda del pais contra el dolar y el euro.
 
 Las tecnologias que utilice:
 - Maven
 - Spring
-- Regex  
-- Lombok  
+- Regex
+- Lombok
 - Arquitectura hexagonal
 - Request Methods: GET
 - Manejo unificado de excepciones con @RestControllerAdvice
@@ -22,6 +16,13 @@ Las tecnologias que utilice:
 - Base de datos en memoria H2
 - Docker
 
+Se exponen 2 endpoint HTTP GET:
+- Para realizar la consulta
+  - localhost:8080/checkip/{ip}
+  
+- Para bloquear determinada IP
+  - localhost:8080/blockip/{ip}
+    
 Para levantar el proyecto:
 - Generar el artefacto .jar
     - mvn clean package 
