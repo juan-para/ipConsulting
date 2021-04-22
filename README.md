@@ -9,7 +9,7 @@ Las tecnologias que utilice:
 - Spring
 - Regex
 - Lombok
-- Arquitectura hexagonal
+- Arquitectura hexagonal    
 - Manejo unificado de excepciones con @RestControllerAdvice
 - Serializacion y deserializacion con Jackson
 - Base de datos en memoria H2
@@ -17,15 +17,23 @@ Las tecnologias que utilice:
 
 Se exponen 2 endpoint HTTP GET:
 - Para realizar la consulta
-  - localhost:8080/checkip/{ip}
+  - ```localhost:8080/checkip/{ip}```
   
 - Para bloquear determinada IP
-  - localhost:8080/blockip/{ip}
+  - ```localhost:8080/blockip/{ip}```
     
 Para levantar el proyecto:
 - Generar el artefacto .jar
-    - mvn clean package 
+    - ```mvn clean package```
 - Crear la imagen
-    - docker build -t ip-consulting:1.0 .
+    - ```docker build -t ip-consulting:1.0 .```
 - Levantar la imagen  
-    - sudo docker run -d -p 8080:8080 -t ip-consulting:1.0
+    - ```sudo docker run -d -p 8080:8080 -t ip-consulting:1.0```
+
+La respuesta generica de error:
+```
+  {
+  "errorType": "Generic error",
+  "description": null
+  }
+```
