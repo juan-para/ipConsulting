@@ -25,14 +25,22 @@ de la moneda respecto del dolar/euro.
   
 **Se exponen 2 endpoint HTTP GET:**
 - Para realizar la consulta
-  - ```localhost:8080/checkip/{ip}```
+  - ```
+    localhost:8080/checkip/{ip}
+    ```
   - Su respuesta JSON seria
-    ```Completar...```  
-  - Se pueden visualizar los datos en la base, configurando el jdbc con "jdbc:h2:mem:docker"
-    ```localhost:8080/h2-console```
+    ```
+    Completar...
+    ```  
+- Se pueden visualizar los datos en la base, configurando el jdbc con "jdbc:h2:mem:docker"
+  ```
+  localhost:8080/h2-console
+  ```
   
 - Para bloquear determinada IP
-  - ```localhost:8080/blockip/{ip}```
+  - ```
+    localhost:8080/blockip/{ip}
+    ```
   - Su respuesta JSON seria
     ```
     {
