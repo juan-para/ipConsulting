@@ -36,7 +36,21 @@ de la moneda respecto del dolar/euro.
     ```
   - Su respuesta JSON seria
     ```
-    Completar...
+    {
+      "ip": "216.58.211.206",
+        "country": {
+            "name": "United States of America",
+            "iso2": "US",
+            "iso3": "USA",
+                "currency": {
+                "code": "USD",
+                    "rates": {
+                    "usd": 1,
+                    "eur": 0.83025515
+                }
+            }
+        }
+    }
     ```  
 - Se pueden visualizar los datos en la base, configurando el jdbc con "jdbc:h2:mem:docker"
   ```
@@ -50,14 +64,14 @@ de la moneda respecto del dolar/euro.
   - Su respuesta JSON seria
     ```
     {
-    "ip": "5.6.7.8",
-    "blockedStatus": true
+        "ip": "5.6.7.8",
+        "blockedStatus": true
     }
     ```
 **La respuesta generica de error:**
 ```
   {
-  "errorType": "Generic error",
-  "description": descripcion del error...
+      "errorType": "Generic error",
+      "description": descripcion del error...
   }
 ```
