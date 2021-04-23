@@ -22,8 +22,9 @@ public class GetCountryUseCaseImpl implements GetCountryUseCase {
     public Country retrieveCountryByIP(@NonNull String ip) {
 
         // External API invocation
-        // United States: 198.41.0.4
-        // Germany:       5.6.7.8
+        // United States:   198.41.0.4
+        // Korea:           1.255.0.9
+        // Germany:         5.6.7.8
         Optional<IpToCountryResponse> response = getCountryGateway.retrieveCountryByIP(ip);
 
         //Mapper invocation
