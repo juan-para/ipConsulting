@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class BlockIPController {
 
-    AddBlockedIPUseCase AddBlockedIPUseCase;
+    private final AddBlockedIPUseCase AddBlockedIPUseCase;
 
     @GetMapping(value = "/blockip/{ip}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<BlockIPResponse> apply(@PathVariable String ip) throws JsonProcessingException {
+    public ResponseEntity<BlockIPResponse> apply(@PathVariable String ip) {
         return ResponseEntity.ok(AddBlockedIPUseCase.blockIP(ip));
     }
 }

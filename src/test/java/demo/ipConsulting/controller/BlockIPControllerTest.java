@@ -1,25 +1,29 @@
 package demo.ipConsulting.controller;
 
+import demo.ipConsulting.model.dto.BlockIPResponse;
 import demo.ipConsulting.usecase.database.AddBlockedIPUseCase;
-import demo.ipConsulting.usecase.orchestrator.CountryDataOrchestratorUseCase;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Executable;
-
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 class BlockIPControllerTest {
 
     @Test
-    void whenBodyIsMissing_thenReturnBadRequest() {
-
+    void whenCallingUseCase_thenReturnCorrectResponseType() {
         // Given
-        final var useCase = new BlockIPController(null);
-
+        final var ip = "192.168.0.1";
+        final var blockIPResponse = mock(BlockIPResponse.class);
+        final var useCase = mock(AddBlockedIPUseCase.class);
+        final var blockIPController = new BlockIPController(useCase);
 
         // When
-        Executable executable = () -> useCase.createAddressObject(ip);
-        // Then
+        when(useCase.blockIP(ip)).thenReturn(blockIPResponse);
 
+        // Then
+        final var response = useCase.blockIP(ip);
+        verify(useCase, times(1)).blockIP(ip);
     }
 }

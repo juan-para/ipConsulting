@@ -18,7 +18,7 @@ public class CheckIPController {
 
     // For example: localhost:8080/checkip/5.6.7.8
     @GetMapping(value = "/checkip/{ip}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Adress> apply(@PathVariable String ip) throws JsonProcessingException {
+    public ResponseEntity<Adress> apply(@PathVariable String ip) {
         return ResponseEntity.ok(countryDataOrchestratorUseCase.createAddressObject(ip));
     }
 }
