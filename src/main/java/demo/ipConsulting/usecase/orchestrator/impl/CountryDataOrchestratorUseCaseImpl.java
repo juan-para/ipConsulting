@@ -98,7 +98,8 @@ public class CountryDataOrchestratorUseCaseImpl implements CountryDataOrchestrat
         // TODO: Check Errors, use restControllerAdvice (MainExceptionHandler.class controller package)
         // TODO: Add docker file and how to run it
         // TODO: Add security?
-        // TODO: If the country already exist in the database, skip the respective api call
+        // TODO: Check the documentation for a more performance request like
+        //  https://restcountries.eu/rest/v2/all?fields=name;capital;currencies
 
         //TODO: Change the return object
         return adress;

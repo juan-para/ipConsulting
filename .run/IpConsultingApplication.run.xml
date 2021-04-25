@@ -4,7 +4,6 @@
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="MAIN_CLASS_NAME" value="demo.ipConsulting.IpConsultingApplication" />
     <module name="ipConsulting" />
-    <option name="PROGRAM_PARAMETERS" value="IPCONSULTING_FIXER_BASE_URL=http://data.fixer.io;IPCONSULTING_IP_TO_COUNTRY_BASE_URL=https://api.ip2country.info;IPCONSULTING_REST_COUNTRIES_BASE_URL=https://restcountries.eu/" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="demo.ipConsulting.*" />

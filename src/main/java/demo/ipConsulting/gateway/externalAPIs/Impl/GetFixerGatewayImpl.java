@@ -4,6 +4,7 @@ import demo.ipConsulting.gateway.externalAPIs.GetFixerGateway;
 import demo.ipConsulting.model.dto.FixerResponse;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -21,7 +22,8 @@ public class GetFixerGatewayImpl implements GetFixerGateway {
     // TODO: Move this info to an environment variable:  @Value(${...}) + aplication.yml
     private final String accessKey = "b88b9a0158807bba377d1f219797b7b0";
 
-    private final String baseURL = "http://data.fixer.io/api/";
+    @Value("${external-api.rest-countries.base-url}")
+    private final String baseURL;
     private static final String resourceURI = "/latest";
     private final RestTemplate restTemplate;
 
@@ -35,7 +37,7 @@ public class GetFixerGatewayImpl implements GetFixerGateway {
                     .queryParam("access_key", accessKey)
                     .build().toUriString();
 
-            if(!currencyCode.equals("USD")){
+            if (!currencyCode.equals("USD")) {
                 currencyCode = "USD," + currencyCode;
             }
 
