@@ -15,6 +15,7 @@ de la moneda respecto del dolar/euro.
 - Base de datos en memoria H2
 - Docker
 - Nginx como balanceador de carga
+- JUnit + Mockito
 
 **Para levantar el proyecto:**
 - Generar el artefacto .jar
