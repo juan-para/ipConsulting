@@ -91,17 +91,14 @@ public class CountryDataOrchestratorUseCaseImpl implements CountryDataOrchestrat
         addCheckIPUseCase.AddAddress(adress);
 
         // TODO: Store the value in the data base (CHECK IF the IP already exist in the db before calling the APIs)
-
-        // TODO: Add Return string?
+        // TODO: use Swagger to document the endpoints?
         // TODO: Add Test
-        // TODO: Check cuntries with more than one currency
-        // TODO: Check Errors, use restControllerAdvice (MainExceptionHandler.class controller package)
-        // TODO: Add docker file and how to run it
+        // TODO: Check cuntries with more than one currency)
         // TODO: Add security?
+      
         // TODO: Check the documentation for a more performance request like
         //  https://restcountries.eu/rest/v2/all?fields=name;capital;currencies
 
-        //TODO: Change the return object
         return adress;
     }
 }
