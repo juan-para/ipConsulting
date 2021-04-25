@@ -31,7 +31,7 @@ de la moneda respecto del dolar/euro.
   - ```
     localhost:8080/checkip/{ip}
     ```
-  - Su respuesta JSON seria
+  - Su respuesta JSON de ejemplo seria
     ```
     {
       "ip": "216.58.211.206",
@@ -58,7 +58,7 @@ de la moneda respecto del dolar/euro.
   - ```
     localhost:8080/blockip/{ip}
     ```
-  - Su respuesta JSON seria
+  - Su respuesta JSON de ejemplo seria
     ```
     {
         "ip": "5.6.7.8",
