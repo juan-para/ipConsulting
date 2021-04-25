@@ -30,19 +30,4 @@ class BlockIPControllerTest {
         final var response = useCase.blockIP(ip);
         verify(useCase, times(1)).blockIP(ip);
     }
-
-/*    @Test
-    void whenIpIsNotCorrect_thenReturnErrorResponseType() {
-        // Given
-        final var badIP = "256.256.256.256";
-        final var blockIPResponse = mock(BlockIPResponse.class);
-        final var useCase = mock(AddBlockedIPUseCase.class);
-        final var blockIPController = new BlockIPController(useCase);
-
-        // When
-
-        // Then
-        final Executable executable = () -> useCase.blockIP(badIP);
-        assertThrows(IPAddressException.class, executable, "IP is incorrect");
-    }*/
 }
