@@ -7,7 +7,7 @@ de la moneda respecto del dolar/euro.
 **Las tecnologias que utilice:**
 - Maven
 - Spring
-- Regex
+- Validaciones con Regex
 - Lombok
 - Arquitectura hexagonal    
 - Manejo unificado de excepciones con @RestControllerAdvice
@@ -18,6 +18,7 @@ de la moneda respecto del dolar/euro.
 - JUnit + Mockito
 
 **Para levantar el proyecto:**
+- Checkear la clase GetFixerGatewayImpl y cambiar el token segun corresponda
 - Generar el artefacto .jar
   - ```
     mvn clean package
