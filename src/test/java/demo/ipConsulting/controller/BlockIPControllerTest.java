@@ -1,9 +1,13 @@
 package demo.ipConsulting.controller;
 
+import demo.ipConsulting.exception.IPAddressException;
 import demo.ipConsulting.model.dto.BlockIPResponse;
+import demo.ipConsulting.model.entity.common.ErrorResponse;
 import demo.ipConsulting.usecase.database.AddBlockedIPUseCase;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;

@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @Service
 public class DataBaseGenericTableService {
+    // TODO: Generate test class
 
     @Autowired
     private DataBaseGenericTableRepository repository;

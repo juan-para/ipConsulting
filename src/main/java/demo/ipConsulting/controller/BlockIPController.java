@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import demo.ipConsulting.model.dto.BlockIPResponse;
 import demo.ipConsulting.usecase.database.AddBlockedIPUseCase;
 import lombok.AllArgsConstructor;
+import lombok.NonNull;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

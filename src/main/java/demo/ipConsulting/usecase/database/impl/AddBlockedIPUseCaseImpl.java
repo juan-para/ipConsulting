@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 @Component
 public class AddBlockedIPUseCaseImpl implements AddBlockedIPUseCase {
+    // TODO: Add test class
 
     DataBaseGenericTableService dataBaseGenericTableService;
 
