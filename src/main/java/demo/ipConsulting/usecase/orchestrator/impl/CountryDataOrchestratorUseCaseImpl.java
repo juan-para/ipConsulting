@@ -41,48 +41,35 @@ public class CountryDataOrchestratorUseCaseImpl implements CountryDataOrchestrat
 
         // API call: Get the ISOs properties
         Country countryISOs = null;
-        try {
-            countryISOs = getCountryUseCase.retrieveCountryByIP(ip);
-        } catch (Exception e) {
-            throw new IPAddressException("Error when calling the use case GetCountryUseCaseImpl", e);
-        }
+        countryISOs = getCountryUseCase.retrieveCountryByIP(ip);
 
         // API call: Get the currency and Country name by ISO
         Country countryNameAndCurrency;
-        try {
-            if (!countryISOs.getIso2().isEmpty()) {
-                countryNameAndCurrency = getISOAndCurrencyUseCase.retrieveISOAndCurrencyByCountryName(
-                        countryISOs.getIso2());
-            } else {
-                countryNameAndCurrency = getISOAndCurrencyUseCase.retrieveISOAndCurrencyByCountryName(
-                        countryISOs.getIso3());
-            }
-        } catch (Exception e) {
-            throw new IPAddressException("Error when calling the use case GetISOAndCurrencyUseCaseImpl", e);
+        if (!countryISOs.getIso2().isEmpty()) {
+            countryNameAndCurrency = getISOAndCurrencyUseCase.retrieveISOAndCurrencyByCountryName(
+                    countryISOs.getIso2());
+        } else {
+            countryNameAndCurrency = getISOAndCurrencyUseCase.retrieveISOAndCurrencyByCountryName(
+                    countryISOs.getIso3());
         }
+
 
         // API call: Get the rates for the currency
         Rates rates = null;
-        try {
-            rates = getCurrencyUseCase.retrieveCurrenciesRatesByCurrencyCode(countryNameAndCurrency
-                    .getCurrency().getCode());
-        } catch (Exception e) {
-            throw new IPAddressException("Error when calling the use case GetCurrencyUseCaseImpl", e);
-        }
+        rates = getCurrencyUseCase.retrieveCurrenciesRatesByCurrencyCode(countryNameAndCurrency
+                .getCurrency().getCode());
 
         // Create the Adress object
         Currency currency = Currency.builder()
                 .code(countryNameAndCurrency.getCurrency().getCode())
                 .rates(rates)
                 .build();
-
         Country country = Country.builder()
                 .name(countryNameAndCurrency.getName())
                 .currency(currency)
                 .iso2(countryISOs.getIso2())
                 .iso3(countryISOs.getIso3())
                 .build();
-
         Adress adress = Adress.builder()
                 .country(country)
                 .ip(ip)
@@ -91,16 +78,11 @@ public class CountryDataOrchestratorUseCaseImpl implements CountryDataOrchestrat
         addCheckIPUseCase.AddAddress(adress);
 
         // TODO: Store the value in the data base (CHECK IF the IP already exist in the db before calling the APIs)
-
-        // TODO: Add Return string?
+        // TODO: use Swagger to document the endpoints?
         // TODO: Add Test
-        // TODO: Check cuntries with more than one currency
-        // TODO: Check Errors, use restControllerAdvice (MainExceptionHandler.class controller package)
-        // TODO: Add docker file and how to run it
+        // TODO: Check cuntries with more than one currency)
         // TODO: Add security?
-        // TODO: If the country already exist in the database, skip the respective api call
 
-        //TODO: Change the return object
         return adress;
     }
 }

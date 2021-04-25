@@ -14,19 +14,16 @@ de la moneda respecto del dolar/euro.
 - Serializacion y deserializacion con Jackson
 - Base de datos en memoria H2
 - Docker
+- Nginx como balanceador de carga
 
 **Para levantar el proyecto:**
 - Generar el artefacto .jar
   - ```
     mvn clean package
     ```
-- Crear la imagen
+- Levantar la imagen (2 servicios de esta app) y el balanceador de carga
   - ```
-    docker build -t ip-consulting:1.0 .
-    ```
-- Levantar la imagen
-  - ```
-    sudo docker run -d -p 8080:8080 -t ip-consulting:1.0
+    sudo docker-compose up
     ```
   
 **Se exponen 2 endpoint HTTP GET:**
@@ -34,7 +31,7 @@ de la moneda respecto del dolar/euro.
   - ```
     localhost:8080/checkip/{ip}
     ```
-  - Su respuesta JSON seria
+  - Su respuesta JSON de ejemplo seria
     ```
     {
       "ip": "216.58.211.206",
@@ -61,7 +58,7 @@ de la moneda respecto del dolar/euro.
   - ```
     localhost:8080/blockip/{ip}
     ```
-  - Su respuesta JSON seria
+  - Su respuesta JSON de ejemplo seria
     ```
     {
         "ip": "5.6.7.8",

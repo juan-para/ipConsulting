@@ -16,10 +16,14 @@ public class CountryNameMapperImpl implements CountryNameMapper {
             throw new IPAddressException("Country name is not present in the response");
         }
 
-        return Country.builder()
-                .iso2(ipToCountryResponse.get().getCountryCode())
-                .iso3(ipToCountryResponse.get().getCountryCode3())
-                .currency(Currency.builder().build()) // Empty
-                .build();
+        try {
+            return Country.builder()
+                    .iso2(ipToCountryResponse.get().getCountryCode())
+                    .iso3(ipToCountryResponse.get().getCountryCode3())
+                    .currency(Currency.builder().build()) // Empty
+                    .build();
+        } catch (Exception e) {
+            throw new IPAddressException("Error when mapping the Country");
+        }
     }
 }

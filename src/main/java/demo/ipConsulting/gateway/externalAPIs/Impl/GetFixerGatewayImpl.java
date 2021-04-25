@@ -43,7 +43,6 @@ public class GetFixerGatewayImpl implements GetFixerGateway {
                     "symbols", currencyCode,
                     "format", 1);
 
-            // TODO: Jackson fails HERE
             optional = Optional.of(
                     restTemplate.getForEntity(
                             endpoint,

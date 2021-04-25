@@ -1,5 +1,6 @@
 package demo.ipConsulting.model.mapper.impl;
 
+import demo.ipConsulting.exception.IPAddressException;
 import demo.ipConsulting.model.dto.RestCountriesResponse;
 import demo.ipConsulting.model.entity.Country;
 import demo.ipConsulting.model.entity.Currency;
@@ -14,15 +15,18 @@ public class IsoAndCurrencyMapperImpl implements IsoAndCurrencyMapper {
         if (restCountriesResponse.isEmpty() || restCountriesResponse.get().getCurrencies().get(0).getCode().isEmpty()) {
             throw new RuntimeException("Response or Currency code is empty");
         }
+        try {
+            // TODO: Check if a country has more than one currency
+            Currency currency = Currency.builder()
+                    .code(restCountriesResponse.get().getCurrencies().get(0).getCode())
+                    .build();
 
-        // TODO: Check if a country has more than one currency
-        Currency currency = Currency.builder()
-                .code(restCountriesResponse.get().getCurrencies().get(0).getCode())
-                .build();
-
-        return Country.builder()
-                .name(restCountriesResponse.get().getName())
-                .currency(currency)
-                .build();
+            return Country.builder()
+                    .name(restCountriesResponse.get().getName())
+                    .currency(currency)
+                    .build();
+        } catch (Exception e) {
+            throw new IPAddressException("Error when mapping the ISOs and Currency");
+        }
     }
 }

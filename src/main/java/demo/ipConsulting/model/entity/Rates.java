@@ -9,5 +9,5 @@ import lombok.Getter;
 @AllArgsConstructor
 public class Rates {
     private final float usd;
-    private final float eur; //TODO: Check how to separate this value (because is loaded dynamic and jackson doesn't know)
+    private final float eur;
 }

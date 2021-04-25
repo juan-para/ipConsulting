@@ -16,7 +16,6 @@ public class DataBaseGenericTableService {
     private DataBaseGenericTableRepository repository;
 
     public List<DataBaseGenericTable> retrieveAllBlockedIPs() {
-        // TODO: is probably better to use lambdas here and in the mapper classes
         List<DataBaseGenericTable> blockedIPs = new ArrayList<>();
         for (DataBaseGenericTable adressIP : repository.findAll()) {
             if (adressIP.isBlocked()) {
