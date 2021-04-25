@@ -63,10 +63,11 @@
                 <version>0.8.3</version>
                 <configuration>
                     <excludes>
-                        <exclude>demo.ipConsulting.model.dataBase.*</exclude>
-                        <exclude>demo.ipConsulting.model.dto.*</exclude>
-                        <exclude>demo.ipConsulting.model.entity.*</exclude>
-                        <exclude>demo.ipConsulting.config.*</exclude>
+                        <exclude>**/dataBase/*</exclude>
+                        <exclude>**/dto/*</exclude>
+                        <exclude>**/entity/*</exclude>
+                        <exclude>**/entity/common/*</exclude>
+                        <exclude>**/config/*</exclude>
                     </excludes>
                 </configuration>
                 <executions>

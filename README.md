@@ -74,3 +74,8 @@ de la moneda respecto del dolar/euro.
       "description": descripcion del error...
   }
 ```
+
+**Comandos Utiles:**
+- mvn clean test    (para correr los test)
+- mvn clean verify  (para ver si pasa el coverage)
+- mvn clean package (para generar el artefacto)
