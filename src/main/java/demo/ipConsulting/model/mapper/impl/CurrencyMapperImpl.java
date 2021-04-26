@@ -11,8 +11,10 @@ public class CurrencyMapperImpl implements CurrencyMapper {
 
     @Override
     public Rates apply(Optional<FixerResponse> fixerResponse, String currencyCode) {
-        if (fixerResponse.isEmpty() || fixerResponse.get().getRates().isEmpty()) {
-            throw new RuntimeException("Response is not present");
+        if (fixerResponse == null
+                || fixerResponse.isEmpty()
+                || fixerResponse.get().getRates().isEmpty()) {
+            throw new IPAddressException("Response is not present");
         }
 
         try {
@@ -24,13 +26,13 @@ public class CurrencyMapperImpl implements CurrencyMapper {
         */
             float rateUSD = 0;
             float rateEUR = 0;
-            float dollarEuroRate = Float.parseFloat(fixerResponse.get().getRates()
+            float dollarRate = Float.parseFloat(fixerResponse.get().getRates()
                     .findValues("USD").get(0).toString());
             float secondCurrencyEuroRate = Float.parseFloat(fixerResponse.get().getRates()
                     .findValues(currencyCode).get(0).toString());
 
             rateEUR = 1 / secondCurrencyEuroRate;
-            rateUSD = rateEUR * dollarEuroRate;
+            rateUSD = rateEUR * dollarRate;
 
             return Rates.builder()
                     .usd(rateUSD)
