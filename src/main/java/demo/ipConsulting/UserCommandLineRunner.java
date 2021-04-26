@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserCommandLineRunner implements CommandLineRunner {
+    // TODO: Check if is better to use data.jpa & schema.jpa
+
     // This class runs as soon as the proyect is deployed, i use it to generate a couple of records in the database
     // Connection URL: http://localhost:8080/h2-console/
 

@@ -77,8 +77,7 @@ public class CountryDataOrchestratorUseCaseImpl implements CountryDataOrchestrat
 
         addCheckIPUseCase.AddAddress(adress);
 
-        // TODO: Store the value in the data base (CHECK IF the IP already exist in the db before calling the APIs)
-        // TODO: use Swagger to document the endpoints?
+        // TODO: Use Swagger to document the endpoints
         // TODO: Complete Test Classes
         // TODO: Check cuntries with more than one currency)
         // TODO: Add security?
