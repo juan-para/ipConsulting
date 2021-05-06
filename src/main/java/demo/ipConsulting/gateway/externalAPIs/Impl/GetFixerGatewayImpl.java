@@ -16,10 +16,10 @@ import java.util.Optional;
 @Component
 public class GetFixerGatewayImpl implements GetFixerGateway {
 
-    // http://data.fixer.io/api/latest?access_key=b88b9a0158807bba377d1f219797b7b0&symbols=USD,ARS&format=1
+    // Example: http://data.fixer.io/api/latest?access_key=b88b9a0158807bba377d1f219797b7b0&symbols=USD,ARS&format=1
 
     // TODO: Move this info to an environment variable:  @Value(${...}) + aplication.yml
-    private final String accessKey = "b88b9a0158807bba377d1f219797b7b0";
+    private final String accessKey = "Choose a valid token";
 
     private final String baseURL = "http://data.fixer.io/api/";
     private static final String resourceURI = "/latest";
